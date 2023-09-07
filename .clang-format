@@ -1,0 +1,31 @@
+BasedOnStyle: LLVM
+Language : Cpp
+Standard : Cpp11
+
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: false
+AllowShortLambdasOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+BinPackArguments: false
+BinPackParameters: false
+
+IndentWidth: 2
+ContinuationIndentWidth: 2
+UseTab: Never
+BreakBeforeBraces: Attach
+IndentCaseLabels: true
+AccessModifierOffset: -2
+PackConstructorInitializers: Never
+ColumnLimit: 80
+PointerBindsToType: true
+
+SpacesInParentheses: false
+SpacesInAngles: false
+SpaceBeforeAssignmentOperators: true
+MaxEmptyLinesToKeep: 1
+SpaceBeforeParens: Never
+NamespaceIndentation: None

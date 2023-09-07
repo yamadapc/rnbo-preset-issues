@@ -1,0 +1,6 @@
+[submodule "vendor/catch2"]
+	path = vendor/catch2
+	url = https://github.com/catchorg/Catch2
+[submodule "vendor/juce"]
+	path = vendor/juce
+	url = https://github.com/juce-framework/JUCE
