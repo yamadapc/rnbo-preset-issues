@@ -20,9 +20,13 @@ static nlohmann::json getJSONState(GainAudioProcessor& gainAudioProcessor) {
 }
 
 TEST_CASE("GainAudioProcessor updates state after changing preset") {
+  juce::MessageManager::getInstance();
+  juce::MessageManagerLock messageManagerLock;
+  REQUIRE(messageManagerLock.lockWasGained());
   auto gainAudioProcessor = createProcessor();
   auto audioBuffer = juce::AudioBuffer<float>(2, 512);
   auto midiBuffer = juce::MidiBuffer();
+
   // Push a block through
   gainAudioProcessor->prepareToPlay(44100, 512);
   gainAudioProcessor->processBlock(audioBuffer, midiBuffer);
@@ -73,5 +77,33 @@ TEST_CASE("GainAudioProcessor updates state after changing preset") {
                                        {"gain", {{"value", 0.0}}}};
     REQUIRE(nlohmann::to_string(newState) ==
             nlohmann::to_string(newExpectedState));
+  }
+
+  SECTION("If we change the state the JSON state is updated") {
+    REQUIRE(gainAudioProcessor->getCurrentProgram() == -1);
+    auto& rnbo = gainAudioProcessor->getRnboObject();
+    auto gainIndex = rnbo.getParameterIndexForID("gain");
+    auto& parameters = gainAudioProcessor->getParameters();
+    parameters[gainIndex]->setValueNotifyingHost(0.4f);
+    gainAudioProcessor->processBlock(audioBuffer, midiBuffer);
+
+    auto newState = getJSONState(*gainAudioProcessor);
+    REQUIRE(static_cast<float>(newState["gain"]["value"]) - 0.4 < 0.001);
+  }
+
+  SECTION("If we restore a JSON state onto a processor, its state is updated") {
+    nlohmann::json stateToRestore = {{"__presetid", "rnbo"},
+                                     {"gain", {{"value", 0.8}}}};
+    REQUIRE(gainAudioProcessor->getCurrentProgram() == -1);
+
+    auto& rnbo = gainAudioProcessor->getRnboObject();
+
+    auto stateToRestoreStr = nlohmann::to_string(stateToRestore);
+    gainAudioProcessor->setStateInformation(stateToRestoreStr.c_str(),
+                                            stateToRestoreStr.length());
+    gainAudioProcessor->processBlock(audioBuffer, midiBuffer);
+
+    auto newState = getJSONState(*gainAudioProcessor);
+    REQUIRE(static_cast<float>(newState["gain"]["value"]) - 0.8 < 0.001);
   }
 }
