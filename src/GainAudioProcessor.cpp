@@ -22,8 +22,6 @@ GainAudioProcessor* GainAudioProcessor::createDefault() {
   patcher_desc = RNBO::patcher_description;
   presets = RNBO::patcher_presets;
 #endif
-  juce::Logger::writeToLog("Created PD1 processor");
-
   return new GainAudioProcessor(patcher_desc, presets, data);
 }
 

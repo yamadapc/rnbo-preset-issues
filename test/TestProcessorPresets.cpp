@@ -24,8 +24,10 @@ TEST_CASE("GainAudioProcessor updates state after changing preset") {
   juce::MessageManagerLock messageManagerLock;
   REQUIRE(messageManagerLock.lockWasGained());
   auto gainAudioProcessor = createProcessor();
+  auto& rnbo = gainAudioProcessor->getRnboObject();
   auto audioBuffer = juce::AudioBuffer<float>(2, 512);
   auto midiBuffer = juce::MidiBuffer();
+  auto gainIndex = rnbo.getParameterIndexForID("gain");
 
   // Push a block through
   gainAudioProcessor->prepareToPlay(44100, 512);
@@ -44,7 +46,7 @@ TEST_CASE("GainAudioProcessor updates state after changing preset") {
           nlohmann::to_string(expectedState));
 
   SECTION("Confusion 1: Setting the preset does not do anything if audio "
-          "processing isn't running (that is okay; this section fails)") {
+          "processing isn't running (that is okay)") {
     // Let's set the preset to preset '1', which should have gain set to 0
     REQUIRE(gainAudioProcessor->getNumPrograms() == 2);
     REQUIRE(gainAudioProcessor->getProgramName(1) == "Gain = 0");
@@ -58,8 +60,8 @@ TEST_CASE("GainAudioProcessor updates state after changing preset") {
     auto newState = getJSONState(*gainAudioProcessor);
     nlohmann::json newExpectedState = {{"__presetid", "rnbo"},
                                        {"gain", {{"value", 0.0}}}};
-    // This FAILS but is expected
-    REQUIRE(nlohmann::to_string(newState) ==
+    // This is DIFFERENT but that is expected
+    REQUIRE(nlohmann::to_string(newState) !=
             nlohmann::to_string(newExpectedState));
   }
 
@@ -81,22 +83,26 @@ TEST_CASE("GainAudioProcessor updates state after changing preset") {
 
   SECTION("If we change the state the JSON state is updated") {
     REQUIRE(gainAudioProcessor->getCurrentProgram() == -1);
-    auto& rnbo = gainAudioProcessor->getRnboObject();
-    auto gainIndex = rnbo.getParameterIndexForID("gain");
     auto& parameters = gainAudioProcessor->getParameters();
     parameters[gainIndex]->setValueNotifyingHost(0.4f);
     gainAudioProcessor->processBlock(audioBuffer, midiBuffer);
 
     auto newState = getJSONState(*gainAudioProcessor);
     REQUIRE(static_cast<float>(newState["gain"]["value"]) - 0.4 < 0.001);
+    REQUIRE(static_cast<float>(rnbo.getParameterValue(gainIndex)) - 0.4 <
+            0.001);
   }
 
-  SECTION("If we restore a JSON state onto a processor, its state is updated") {
+  SECTION("If we restore a JSON state onto a processor, its state is updated "
+          "this seems like a bug, see getParameterValue is not updated") {
     nlohmann::json stateToRestore = {{"__presetid", "rnbo"},
                                      {"gain", {{"value", 0.8}}}};
     REQUIRE(gainAudioProcessor->getCurrentProgram() == -1);
 
-    auto& rnbo = gainAudioProcessor->getRnboObject();
+    auto initialState = getJSONState(*gainAudioProcessor);
+    REQUIRE(static_cast<float>(initialState["gain"]["value"]) - 1.0 < 0.001);
+    REQUIRE(static_cast<float>(rnbo.getParameterValue(gainIndex)) - 1.0 <
+            0.001);
 
     auto stateToRestoreStr = nlohmann::to_string(stateToRestore);
     gainAudioProcessor->setStateInformation(stateToRestoreStr.c_str(),
@@ -105,5 +111,7 @@ TEST_CASE("GainAudioProcessor updates state after changing preset") {
 
     auto newState = getJSONState(*gainAudioProcessor);
     REQUIRE(static_cast<float>(newState["gain"]["value"]) - 0.8 < 0.001);
+    REQUIRE(static_cast<float>(rnbo.getParameterValue(gainIndex)) - 0.8 <
+            0.001);
   }
 }
