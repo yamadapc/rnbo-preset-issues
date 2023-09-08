@@ -62,7 +62,7 @@ Details of the GPLv3 license can be found at: https://www.gnu.org/licenses/gpl-3
 namespace RNBO {
 
 
-#define trunc(x) ((Int)(x))
+#define floor(x) ((long)(x))
 
 #if defined(__GNUC__) || defined(__clang__)
     #define RNBO_RESTRICT __restrict__

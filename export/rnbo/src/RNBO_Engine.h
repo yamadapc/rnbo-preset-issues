@@ -247,7 +247,7 @@ namespace RNBO {
 			}
 		}
 
-		void sendParameter(Index index, bool ignoreValue) override {
+		void sendParameter(Index index) override {
 			this->getEngine()->notifyParameterValueChanged(index, this->getParameterValue(index), false);
 		}
 
@@ -256,11 +256,11 @@ namespace RNBO {
 			switch (index) {
 				case 0:
 					test_param1 = value;
-					this->sendParameter(0, false);
+					this->sendParameter(0);
 					break;
 				case 1:
 					test_param2 = value;
-					this->sendParameter(1, false);
+					this->sendParameter(1);
 					break;
 				default:
 					break;

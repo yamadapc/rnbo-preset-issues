@@ -135,7 +135,7 @@
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 34.0, 134.0, 1132.0, 1001.0 ],
+						"rect" : [ 34.0, 134.0, 1135.0, 1001.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -170,7 +170,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 503.0, 339.0, 43.0, 23.0 ],
+									"patching_rect" : [ 421.0, 376.0, 43.0, 23.0 ],
 									"rnbo_classname" : "out~",
 									"rnbo_extra_attributes" : 									{
 										"comment" : "",
@@ -266,7 +266,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 454.0, 339.0, 43.0, 23.0 ],
+									"patching_rect" : [ 372.0, 376.0, 43.0, 23.0 ],
 									"rnbo_classname" : "out~",
 									"rnbo_extra_attributes" : 									{
 										"comment" : "",
@@ -363,7 +363,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 577.0, 144.0, 185.0, 23.0 ],
+									"patching_rect" : [ 495.0, 181.0, 185.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
 										"exponent" : 1.0,
@@ -782,7 +782,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 503.0, 244.0, 33.0, 23.0 ],
+									"patching_rect" : [ 421.0, 281.0, 33.0, 23.0 ],
 									"rnbo_classname" : "*~",
 									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "*~_obj-4",
@@ -797,7 +797,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 454.0, 244.0, 33.0, 23.0 ],
+									"patching_rect" : [ 372.0, 281.0, 33.0, 23.0 ],
 									"rnbo_classname" : "*~",
 									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "*~_obj-3",
@@ -812,7 +812,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 503.0, 144.0, 35.0, 23.0 ],
+									"patching_rect" : [ 421.0, 181.0, 35.0, 23.0 ],
 									"rnbo_classname" : "in~",
 									"rnbo_extra_attributes" : 									{
 										"comment" : "",
@@ -908,7 +908,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 454.0, 144.0, 35.0, 23.0 ],
+									"patching_rect" : [ 372.0, 181.0, 35.0, 23.0 ],
 									"rnbo_classname" : "in~",
 									"rnbo_extra_attributes" : 									{
 										"comment" : "",
@@ -1054,7 +1054,17 @@
 						"bgfillcolor_color2" : [ 0.263682, 0.004541, 0.038797, 1.0 ],
 						"bgfillcolor_angle" : 270.0,
 						"bgfillcolor_proportion" : 0.39,
-						"bgfillcolor_autogradient" : 0.0
+						"bgfillcolor_autogradient" : 0.0,
+						"export_config" : 						{
+							"cpp-export" : 							{
+								"cpp-code-export" : 								{
+									"export_name" : "rnbo_source.cpp"
+								}
+
+							}
+
+						}
+
 					}
 ,
 					"patching_rect" : [ 343.0, 215.0, 126.0, 22.0 ],
@@ -1095,7 +1105,7 @@
 						"embed" : 1,
 						"snapshot" : 						{
 							"gain" : 							{
-								"value" : 0.02
+								"value" : 1.0
 							}
 ,
 							"__presetid" : "gain"
@@ -1107,25 +1117,51 @@
 									"filetype" : "C74Snapshot",
 									"version" : 2,
 									"minorversion" : 0,
-									"name" : "untitled",
+									"name" : "Gain = 1",
 									"origin" : "gain",
 									"type" : "rnbo",
 									"subtype" : "",
-									"embed" : 0,
+									"embed" : 1,
 									"snapshot" : 									{
 										"gain" : 										{
-											"value" : 0.02
+											"value" : 1.0
 										}
 ,
 										"__presetid" : "gain"
 									}
 ,
 									"fileref" : 									{
-										"name" : "untitled",
+										"name" : "Gain = 1",
 										"filename" : "untitled_20230908_1.maxsnap",
 										"filepath" : "~/Documents/Max 8/Snapshots",
 										"filepos" : -1,
 										"snapshotfileid" : "70d287fc3db54463033089627110932e"
+									}
+
+								}
+, 								{
+									"filetype" : "C74Snapshot",
+									"version" : 2,
+									"minorversion" : 0,
+									"name" : "Gain = 0",
+									"origin" : "gain",
+									"type" : "rnbo",
+									"subtype" : "",
+									"embed" : 1,
+									"snapshot" : 									{
+										"gain" : 										{
+											"value" : 0.0
+										}
+,
+										"__presetid" : "gain"
+									}
+,
+									"fileref" : 									{
+										"name" : "Gain = 1[1]",
+										"filename" : "Gain = 1[1].maxsnap",
+										"filepath" : "~/Documents/Max 8/Snapshots",
+										"filepos" : -1,
+										"snapshotfileid" : "284210af119b774669045491c9c1a22b"
 									}
 
 								}
@@ -1204,6 +1240,13 @@
 		}
 ,
 		"dependency_cache" : [ 			{
+				"name" : "Gain = 1[1].maxsnap",
+				"bootpath" : "~/Documents/Max 8/Snapshots",
+				"patcherrelativepath" : "../../../Documents/Max 8/Snapshots",
+				"type" : "mx@s",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "cym.aiff",
 				"bootpath" : "C74:/docs/tutorial-patchers/msp-tut",
 				"type" : "AIFF",

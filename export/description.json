@@ -15,10 +15,17 @@
       "displayName": "Gain",
       "unit": "",
       "order": 0,
+      "displayorder": "-",
+      "sendinit": true,
+      "initialized": true,
       "debug": false,
+      "saveable": true,
+      "transmittable": true,
       "visible": true,
       "signalIndex": null,
-      "ioType": "IOTypeUndefined"
+      "ioType": "IOTypeUndefined",
+      "serialId": "param_s01",
+      "constrainFunc": "param_01_value_constrain"
     }
   ],
   "numParameters": 1,
@@ -64,9 +71,7 @@
   "meta": {
     "architecture": "x64",
     "filename": "gain.maxpat",
-    "rnboobjname": "rnbomatic",
-    "maxversion": "8.5.6",
-    "rnboversion": "1.2.0",
-    "name": "gain"
+    "maxversion": "8.5.5",
+    "rnboversion": "1.1.2"
   }
 }
