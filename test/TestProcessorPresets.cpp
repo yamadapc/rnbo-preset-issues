@@ -79,6 +79,10 @@ TEST_CASE("GainAudioProcessor updates state after changing preset") {
                                        {"gain", {{"value", 0.0}}}};
     REQUIRE(nlohmann::to_string(newState) ==
             nlohmann::to_string(newExpectedState));
+
+    // BUT this is broken, the RNBO value isn't updated:
+    REQUIRE(static_cast<float>(rnbo.getParameterValue(gainIndex)) - 0.0 <
+            0.001);
   }
 
   SECTION("If we change the state the JSON state is updated") {
