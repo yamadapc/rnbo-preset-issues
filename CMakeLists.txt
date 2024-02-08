@@ -44,6 +44,7 @@ add_subdirectory(
 if (EXISTS ${RNBO_BINARY_DATA_FILE})
   add_definitions(-DRNBO_BINARY_DATA_STORAGE_NAME=${RNBO_BINARY_DATA_STORAGE_NAME})
 endif()
+#add_definitions(-DRNBO_JUCE_PARAM_DEFAULT_NOTIFY=1)
 
 # Include the JUCE submodule, needed for JUCE-based CMake definitions
 add_subdirectory(

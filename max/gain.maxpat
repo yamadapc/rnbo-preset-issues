@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 6,
+			"minor" : 6,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 134.0, 1132.0, 1001.0 ],
+		"rect" : [ 34.0, 100.0, 1056.0, 848.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -128,14 +128,14 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 6,
+							"minor" : 6,
+							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "rnbo",
-						"rect" : [ 34.0, 134.0, 1132.0, 1001.0 ],
+						"rect" : [ 34.0, 128.0, 1132.0, 820.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -177,7 +177,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 3,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "out~_obj-7",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -273,7 +273,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "out~_obj-6",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -366,23 +366,23 @@
 									"patching_rect" : [ 577.0, 144.0, 185.0, 23.0 ],
 									"rnbo_classname" : "param",
 									"rnbo_extra_attributes" : 									{
-										"exponent" : 1.0,
-										"maximum" : 1.0,
-										"tonormalized" : "",
-										"minimum" : 0.0,
-										"enum" : "",
-										"fromnormalized" : "",
-										"preset" : 1,
 										"unit" : "",
-										"sendinit" : 1,
-										"steps" : 0.0,
+										"meta" : "",
+										"maximum" : 1.0,
+										"exponent" : 1.0,
 										"order" : "0",
 										"ctlin" : 0.0,
-										"displayorder" : "-",
-										"meta" : ""
+										"minimum" : 0.0,
+										"fromnormalized" : "",
+										"tonormalized" : "",
+										"steps" : 0.0,
+										"enum" : "",
+										"preset" : 1,
+										"sendinit" : 1,
+										"displayorder" : "-"
 									}
 ,
-									"rnbo_serial" : 3,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "gain",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -766,7 +766,7 @@
 										"aliasOf" : "param",
 										"classname" : "param",
 										"operator" : 0,
-										"versionId" : -1696900560,
+										"versionId" : -1940971094,
 										"changesPatcherIO" : 0
 									}
 ,
@@ -784,7 +784,7 @@
 									"outlettype" : [ "signal" ],
 									"patching_rect" : [ 503.0, 244.0, 33.0, 23.0 ],
 									"rnbo_classname" : "*~",
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "*~_obj-4",
 									"text" : "*~ 1."
 								}
@@ -799,7 +799,7 @@
 									"outlettype" : [ "signal" ],
 									"patching_rect" : [ 454.0, 244.0, 33.0, 23.0 ],
 									"rnbo_classname" : "*~",
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "*~_obj-3",
 									"text" : "*~ 1."
 								}
@@ -819,7 +819,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 2,
+									"rnbo_serial" : 1,
 									"rnbo_uniqueid" : "in~_obj-2",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -915,7 +915,7 @@
 										"meta" : ""
 									}
 ,
-									"rnbo_serial" : 1,
+									"rnbo_serial" : 2,
 									"rnbo_uniqueid" : "in~_obj-1",
 									"rnboinfo" : 									{
 										"needsInstanceInfo" : 1,
@@ -1067,7 +1067,7 @@
 
 					}
 ,
-					"rnboversion" : "1.2.0",
+					"rnboversion" : "1.2.4",
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_invisible" : 1,
@@ -1107,7 +1107,7 @@
 									"filetype" : "C74Snapshot",
 									"version" : 2,
 									"minorversion" : 0,
-									"name" : "untitled",
+									"name" : "Gain = 1",
 									"origin" : "gain",
 									"type" : "rnbo",
 									"subtype" : "",
@@ -1121,7 +1121,7 @@
 									}
 ,
 									"fileref" : 									{
-										"name" : "untitled",
+										"name" : "Gain = 1",
 										"filename" : "untitled_20230908_1.maxsnap",
 										"filepath" : "~/Documents/Max 8/Snapshots",
 										"filepos" : -1,
