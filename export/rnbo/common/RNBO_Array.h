@@ -12,7 +12,9 @@ namespace RNBO {
 	public:
 
 		array() {
-			Platform::get()->memset(_values, 0, sizeof(T) * N);
+			for (size_t i = 0; i < N; i++) {
+				_values[i] = _dummy;
+			}
 		}
 
 		template<typename... Ts> array(Ts ... args)

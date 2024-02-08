@@ -65,8 +65,8 @@
     "architecture": "x64",
     "filename": "gain.maxpat",
     "rnboobjname": "rnbomatic",
-    "maxversion": "8.5.6",
-    "rnboversion": "1.2.0",
+    "maxversion": "8.6.0",
+    "rnboversion": "1.2.4",
     "name": "gain"
   }
 }

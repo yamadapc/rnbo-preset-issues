@@ -1,17 +1,9 @@
 [
   {
-    "name": "Gain = 1",
+    "name": "untitled",
     "preset": {
       "gain": {
-        "value": 1
-      }
-    }
-  },
-  {
-    "name": "Gain = 0",
-    "preset": {
-      "gain": {
-        "value": 0
+        "value": 0.02
       }
     }
   }
